@@ -1,0 +1,207 @@
+/* =======================
+   Global Styles
+======================= */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  color: #0d3b47;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =======================
+   Header / Navigation
+======================= */
+header {
+  background-color: #0d3b47;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  height: 60px;
+  transition: 0.3s;
+}
+
+nav a {
+  color: #ff9900;
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+  position: relative;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ffffff;
+}
+
+nav a.active::after,
+nav a:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ff9900;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+/* =======================
+   Container / Main
+======================= */
+.container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 50px;
+  max-width: 900px;
+  margin: 50px auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+/* Headings */
+.container h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #0d3b47;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Paragraphs */
+p {
+  font-size: 16px;
+  color: #444;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* =======================
+   Forms
+======================= */
+.create-room-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-room-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-room-form label {
+  font-weight: 600;
+  color: #0d3b47;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.create-room-form input,
+.create-room-form select {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.create-room-form input:focus,
+.create-room-form select:focus {
+  outline: none;
+  border-color: #ff9900;
+  box-shadow: 0 0 8px rgba(255, 153, 0, 0.3);
+}
+
+.create-room-form .btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff9900, #e68a00);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.create-room-form .btn:hover {
+  background: linear-gradient(90deg, #e68a00, #cc7a00);
+  transform: translateY(-2px);
+}
+
+/* =======================
+   Tables
+======================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+th {
+  background: #0d3b47;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+tr:nth-child(odd) {
+  background: #efe7e7;
+}
+
+/* =======================
+   Responsive
+======================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px 8px 0 0;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .container {
+    padding: 30px 20px;
+    margin: 30px 15px;
+  }
+
+  .create-room-form .btn {
+    width: 100%;
+  }
+}
