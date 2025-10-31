@@ -2,7 +2,15 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$name = isset($_SESSION['name']) ? htmlspecialchars($_SESSION['name']) : 'Trainer';
+
+// Validate role
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'trainer') {
+    header("Location: ../index.php");
+    exit();
+}
+
+// Get trainer name from session
+$name = isset($_SESSION['name']) && $_SESSION['name'] !== '' ? htmlspecialchars($_SESSION['name']) : 'Trainer';
 ?>
 <header class="main-header">
   <div class="logo">

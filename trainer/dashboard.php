@@ -1,7 +1,17 @@
 <?php
 session_start();
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 include '../db/connect.php';
 $current_page = basename($_SERVER['PHP_SELF']);
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());

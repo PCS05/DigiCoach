@@ -1,5 +1,8 @@
 <?php
 session_start();
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
 include 'db/connect.php';
 
 $error = ''; // Initialize error
@@ -49,12 +52,18 @@ if (isset($_POST['login'])) {
             localStorage.setItem('role', '{$role}');
             localStorage.setItem('name', '{$name}');";
 
-        if($role == 'admin'){
-            echo "window.location.href='admin/dashboard.php';";
-        } elseif($role == 'trainer'){
-            echo "window.location.href='trainer/dashboard.php';";
-        } else{
-            echo "window.location.href='student/dashboard.php';";
+        if (isset($_SESSION['user_id'])) {
+            // Redirect user based on their role
+            if ($_SESSION['role'] === 'admin') {
+                header("Location: admin/dashboard.php");
+                exit();
+            } elseif ($_SESSION['role'] === 'trainer') {
+                header("Location: trainer/dashboard.php");
+                exit();
+            } elseif ($_SESSION['role'] === 'student') {
+                header("Location: student/dashboard.php");
+                exit();
+            }
         }
 
         echo "</script>";
@@ -63,6 +72,8 @@ if (isset($_POST['login'])) {
         $error = "Invalid email or password!";
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>

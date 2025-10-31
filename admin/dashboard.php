@@ -1,5 +1,9 @@
 <?php
 session_start();
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 include '../db/connect.php';
 
 $current_page = basename($_SERVER['PHP_SELF']); 
@@ -8,6 +12,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../index.php");
     exit();
 }
+
 
 // Fetch totals
 $student_query = mysqli_query($conn, "SELECT COUNT(*) as total_students FROM student");

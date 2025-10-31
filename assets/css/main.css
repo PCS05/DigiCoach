@@ -14,19 +14,19 @@ body {
   right: 0;
   z-index: 1000;          
 }
-    .navbar .navbar-brand {
+.navbar .navbar-brand {
       color: #fff;
       font-weight: bold;
       font-size: 20px;
     }
-    .navbar .user-info {
+.navbar .user-info {
       color: #fff;
       margin-left: auto;
       display: flex;
       align-items: center;
       font-size: 16px;
     }
-    .navbar .user-info i {
+.navbar .user-info i {
       margin-right: 8px;
     }
 .sidebar {
@@ -39,7 +39,7 @@ body {
   padding-top: 20px;
 }
 
-    .sidebar a {
+.sidebar a {
       display: block;
       color: #fff;
       padding: 10px 20px;

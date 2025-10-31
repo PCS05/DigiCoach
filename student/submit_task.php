@@ -3,7 +3,11 @@ session_start();
 include '../db/connect.php';
 $current_page = basename($_SERVER['PHP_SELF']); 
 
-
+// Redirect if not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../index.php");
+    exit();
+}
 
 $student_id = $_SESSION['user_id'];
 $student_name = $_SESSION['name'];
@@ -69,7 +73,7 @@ $submitted_tasks = mysqli_query($conn, "
     <a href="submit_task.php" class="<?php if($current_page == 'submit_task.php'){ echo 'active'; } ?>"><i class="fa-solid fa-upload"></i> Submit Task</a>
     <a href="view_attendance.php" class="<?php if($current_page == 'view_attendance.php'){ echo 'active'; } ?>"><i class="fa-solid fa-calendar-check"></i> Attendance</a>
     <a href="view_fees.php" class="<?php if($current_page == 'view_fees.php'){ echo 'active'; } ?>"><i class="fa-solid fa-money-bill"></i> Fees</a>
-    <a href="../index.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    <a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
   </div>
 
   <div class="content">

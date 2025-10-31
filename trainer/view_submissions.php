@@ -12,13 +12,24 @@ if (isset($_POST['update_status'])) {
 
 $trainer_id = $_SESSION['user_id'];
 
-// Fetch student submissions
 $submissions = mysqli_query($conn, "
     SELECT ts.*, s.name AS student_name
     FROM task_submissions ts
     JOIN student s ON ts.student_id = s.id
+    WHERE ts.student_id IN (
+        SELECT student1_id FROM training_rooms WHERE trainer_id = '$trainer_id'
+        UNION
+        SELECT student2_id FROM training_rooms WHERE trainer_id = '$trainer_id'
+        UNION
+        SELECT student3_id FROM training_rooms WHERE trainer_id = '$trainer_id'
+        UNION
+        SELECT student4_id FROM training_rooms WHERE trainer_id = '$trainer_id'
+        UNION
+        SELECT student5_id FROM training_rooms WHERE trainer_id = '$trainer_id'
+    )
     ORDER BY ts.id DESC
 ");
+
 
 // Debug if query fails
 if (!$submissions) {

@@ -1,16 +1,8 @@
 <?php
-
-// local DB
 $host = "localhost";
 $user = "root";
 $pass = "";
 $dbname = "digicoach_db";
-
-// PROD
-// $host = "localhost";
-// $user = "root";
-// $pass = "";
-// $dbname = "digicoach_db";
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 

@@ -14,5 +14,5 @@ $current_page = basename($_SERVER['PHP_SELF']);
   <a href="view_submissions.php" class="<?php if($current_page == 'view_submissions.php'){ echo 'active'; } ?>">
     <i class="fa-solid fa-folder-open"></i> Submissions
   </a>
-  <a href="../index.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  <a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 </aside>
