@@ -23,22 +23,11 @@ $attendance_query = mysqli_query($conn, "SELECT * FROM attendance WHERE student_
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg d-flex justify-content-between">
-    <a class="navbar-brand" href="#">🎓 DigiCoach Student Portal</a>
-    <div class="user-info">
-      <i class="fa-solid fa-user-circle"></i>
-      <?php echo htmlspecialchars($_SESSION['name']); ?>
-    </div>
-  </nav>
+   <!-- Include header -->
+  <?php include 'header.php'; ?>
 
-<div class="sidebar">
-    <a href="dashboard.php" class="<?php if($current_page == 'dashboard.php'){ echo 'active'; } ?>"><i class="fa-solid fa-house"></i> Dashboard</a>
-    <a href="view_task.php" class="<?php if($current_page == 'view_task.php'){ echo 'active'; } ?>"><i class="fa-solid fa-clipboard-list"></i> View Tasks</a>
-    <a href="submit_task.php" class="<?php if($current_page == 'submit_task.php'){ echo 'active'; } ?>"><i class="fa-solid fa-upload"></i> Submit Task</a>
-    <a href="view_attendance.php" class="<?php if($current_page == 'view_attendance.php'){ echo 'active'; } ?>"><i class="fa-solid fa-calendar-check"></i> Attendance</a>
-    <a href="view_fees.php" class="<?php if($current_page == 'view_fees.php'){ echo 'active'; } ?>"><i class="fa-solid fa-money-bill"></i> Fees</a>
-    <a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-  </div>
+  <!-- Include sidebar -->
+  <?php include 'sidebar.php'; ?>
 
   <div class="content">
     <h4>Attendance Record</h4>

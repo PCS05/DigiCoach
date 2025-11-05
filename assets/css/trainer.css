@@ -1,7 +1,8 @@
 body {
-  font-family: 'Inter', sans-serif;
-  background: #f4f7fa;
   margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
   color: #0d3b47;
 }
 
